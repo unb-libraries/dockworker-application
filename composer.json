@@ -1,0 +1,31 @@
+{
+  "name": "unb-libraries/dockworker-application",
+  "description": "Extends the dockworker application to deploy and develop application-based applications via a consistent and unified workflow.",
+  "type": "library",
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "php-http/discovery": true
+    },
+    "preferred-install": {
+      "*": "dist"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "unb-libraries/dockworker": "6.x-dev"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "UNB Libraries",
+      "email": "libsupport@unb.ca"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Dockworker\\": "./src/"
+    }
+  }
+}

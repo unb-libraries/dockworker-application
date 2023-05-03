@@ -1,0 +1,21 @@
+dockworker:
+  version: '6'
+  application:
+    identifiers:
+      id: test.dockworker
+      slug: test-dockworker
+      short_slug: test
+      uuid: 9999
+    framework:
+      name: nginx
+      version: 1.22
+      startup_finished_marker: '99_z_report_completion'
+      endpoint:
+        name: http
+        port: 80
+        readiness_timeout: 15
+    workflows:
+      vcs:
+        type: github
+        owner: unb-libraries
+        name: test-dockworker
