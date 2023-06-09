@@ -9,8 +9,8 @@ dockworker:
     framework:
       name: test
       version: 1.0
-    workflows:
-      vcs:
-        type: github
-        owner: unb-libraries
-        name: test-dockworker
+  workflows:
+    vcs:
+      type: github
+      owner: unb-libraries
+      name: test-dockworker
