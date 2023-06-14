@@ -35,14 +35,14 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
     protected function setRepositoryDescription(): void
     {
         $this->dockworkerIO->title("Setting GitHub Repository Description");
-        try{
+        try {
             $description = Robo::Config()->get('dockworker.application.description');
             $uri = Robo::Config()->get('dockworker.application.uri');
             $this->dockworkerIO->block($description);
             $this->dockworkerIO->block($uri);
              $this->writeGitHubRepositoryDescription(
-                $this->applicationGitHubRepoOwner,
-                $this->applicationGitHubRepoName,
+                 $this->applicationGitHubRepoOwner,
+                 $this->applicationGitHubRepoName,
                  [
                      'description' => $description,
                      'homepage' => $uri,
@@ -50,10 +50,9 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
                      'has_issues' => false,
                      'has_downloads' => false,
                  ]
-            );
+             );
             $this->say("GitHub repository description set successfully!");
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             $this->dockworkerIO->error("Unable to set GitHub repository description: " . $e->getMessage());
             exit(1);
         }
@@ -66,15 +65,14 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
         $this->addGitHubRepositoryTopics(
             $this->getGitHubRepositoryTopics()
         );
-        try{
+        try {
             $this->dockworkerIO->listing($this->gitHubRepositoryTopics);
             $this->writeGitHubRepositoryTopics(
                 $this->applicationGitHubRepoOwner,
                 $this->applicationGitHubRepoName
             );
             $this->say("GitHub repository topics set successfully!");
-        }
-        catch (\Exception $e) {
+        } catch (\Exception $e) {
             $this->dockworkerIO->error("Unable to set GitHub repository topics: " . $e->getMessage());
             exit(1);
         }
@@ -109,5 +107,4 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
         }
         return $topics;
     }
-
 }

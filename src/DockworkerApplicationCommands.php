@@ -52,7 +52,7 @@ class DockworkerApplicationCommands extends DockworkerCommands
     /**
      * @hook pre-init
      */
-    public function initOptions()
+    public function initOptions(): void
     {
         parent::initOptions();
         $this->setApplicationProperties();
