@@ -40,17 +40,17 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
             $uri = Robo::Config()->get('dockworker.application.uri');
             $this->dockworkerIO->block($description);
             $this->dockworkerIO->block($uri);
-             $this->writeGitHubRepositoryDescription(
-                 $this->applicationGitHubRepoOwner,
-                 $this->applicationGitHubRepoName,
-                 [
-                     'description' => $description,
-                     'homepage' => $uri,
-                     'has_wiki' => false,
-                     'has_issues' => false,
-                     'has_downloads' => false,
-                 ]
-             );
+                $this->writeGitHubRepositoryDescription(
+                    $this->applicationGitHubRepoOwner,
+                    $this->applicationGitHubRepoName,
+                    [
+                        'description' => $description,
+                        'homepage' => $uri,
+                        'has_wiki' => false,
+                        'has_issues' => false,
+                        'has_downloads' => false,
+                    ]
+                );
             $this->say("GitHub repository description set successfully!");
         } catch (\Exception $e) {
             $this->dockworkerIO->error("Unable to set GitHub repository description: " . $e->getMessage());
@@ -58,6 +58,9 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
         }
     }
 
+    /**
+     * Sets topics for the repository.
+     */
     protected function setRepositoryTopics(): void
     {
         $this->dockworkerIO->title("Setting GitHub Repository Topics");
@@ -78,6 +81,9 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
         }
     }
 
+    /**
+     * Initializes the repository's settings.
+     */
     protected function initRepositorySettings(): void
     {
         $this->initGitHubClientApplicationRepo(
@@ -87,7 +93,13 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
         $this->checkPreflightChecks($this->dockworkerIO);
     }
 
-    protected function getGitHubRepositoryTopics()
+    /**
+     * Returns the topics to set for the repository.
+     *
+     * @return string[]
+     *   An array of topics.
+     */
+    protected function getGitHubRepositoryTopics(): array
     {
         $file_path = "$this->applicationRoot/vendor/unb-libraries/dockworker-application/data/github.yml";
         $data = Yaml::parseFile($file_path);

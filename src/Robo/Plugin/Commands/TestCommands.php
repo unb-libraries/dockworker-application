@@ -43,7 +43,7 @@ class TestCommands extends DockworkerApplicationCommands
      * This command is a placeholder for framework-specific e2e-test commands that
      * can be implemented by extensions of this package.
      *
-     * @param string[] $options
+     * @param mixed[] $options
      *   An array of options to pass to the command.
      *
      * @option bool $headless Whether to run the tests in headless mode.

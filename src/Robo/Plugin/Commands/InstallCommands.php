@@ -12,8 +12,10 @@ class InstallCommands extends DockworkerApplicationCommands
     /**
      * Install one or more dependencies.
      *
-     * @param array $dependencies
+     * @param string[] $dependencies
      *   A list of dependencies to install.
+     * @param string[] $options
+     *   The options passed to the command.
      *
      * @option only
      *   Limit the dependency to only the provided value, e.g. "dev".
@@ -36,7 +38,7 @@ class InstallCommands extends DockworkerApplicationCommands
     /**
      * Uninstall one or more dependencies.
      *
-     * @param array $dependencies
+     * @param string[] $dependencies
      *   A list of dependencies to uninstall.
      *
      * @command dockworker:uninstall
