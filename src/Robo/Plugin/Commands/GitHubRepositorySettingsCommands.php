@@ -44,7 +44,7 @@ class GitHubRepositorySettingsCommands extends DockworkerApplicationCommands imp
                     $this->applicationGitHubRepoOwner,
                     $this->applicationGitHubRepoName,
                     [
-                        'description' => $description,
+                        'description' => trim($description),
                         'homepage' => $uri,
                         'has_wiki' => false,
                         'has_issues' => false,
