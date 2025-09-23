@@ -4,6 +4,7 @@ namespace Dockworker;
 
 use Consolidation\AnnotatedCommand\AnnotationData;
 use Dockworker\DockworkerCommands;
+use Dockworker\Git\ApplicationGitRepoTrait;
 use Robo\Robo;
 use Symfony\Component\Console\Input\InputInterface;
 
@@ -14,6 +15,8 @@ use Symfony\Component\Console\Input\InputInterface;
  */
 class DockworkerApplicationCommands extends DockworkerCommands
 {
+    use ApplicationGitRepoTrait;
+
     /**
      * The name of the application framework/application.
      *
