@@ -25,15 +25,10 @@ use Robo\Robo;
 trait RegressionCheckerTrait
 {
     /**
-     * Event name dispatched by the regression check orchestrator.
-     *
-     * Public so downstream packages and tests can reference the event name
-     * without re-stringifying it.
-     */
-    public const REGRESSION_CHECK_EVENT = 'dockworker-regression-checks';
-
-    /**
      * Dispatches the regression-check event and collects results from all handlers.
+     *
+     * Subscribers register against the event name "dockworker-regression-checks"
+     * via "@hook on-event dockworker-regression-checks".
      *
      * @return RegressionCheckResult[]
      */
@@ -41,7 +36,7 @@ trait RegressionCheckerTrait
     {
         $context = $this->buildRegressionCheckContext();
         $results = [];
-        $handlers = $this->getCustomEventHandlers(self::REGRESSION_CHECK_EVENT);
+        $handlers = $this->getCustomEventHandlers('dockworker-regression-checks');
         foreach ($handlers as $handler) {
             $label = $this->describeHandler($handler);
             try {
