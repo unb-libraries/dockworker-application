@@ -3,7 +3,6 @@
 namespace Dockworker\Git;
 
 use CzProject\GitPhp\GitRepository;
-use Dockworker\DockworkerException;
 use Dockworker\Git\GitRepoTrait;
 
 /**
@@ -27,16 +26,11 @@ trait ApplicationGitRepoTrait
      * Sets up the lean repository git repo.
      *
      * @hook init
-     *
-     * @throws \Dockworker\DockworkerException
      */
     public function initGitRepo(): void
     {
         if (isset($this->applicationRoot)) {
             $this->curApplicationRepository = $this->getGitRepoFromPath($this->applicationRoot);
-            if (empty($this->curApplicationRepository)) {
-                throw new DockworkerException('Could not initialize the git repository.');
-            }
         }
     }
 
