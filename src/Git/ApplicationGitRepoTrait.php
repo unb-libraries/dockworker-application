@@ -40,7 +40,7 @@ trait ApplicationGitRepoTrait
      * @param string $file_mask
      *   An optional regex pattern for files to include in the list.
      *
-     * @return array
+     * @return string[]
      * @throws \CzProject\GitPhp\GitException
      */
     protected function getApplicationGitRepoStagedFiles(
@@ -58,7 +58,7 @@ trait ApplicationGitRepoTrait
      * @param string $file_mask
      *   An optional regex pattern for files to include in the list.
      *
-     * @return array
+     * @return string[]
      *   The changed files.
      *
      * @throws \CzProject\GitPhp\GitException
