@@ -85,7 +85,7 @@ trait RegressionCheckerTrait
     private function buildRegressionCheckContext(): RegressionCheckContext
     {
         $config = Robo::config();
-        $dockworkerConfig = $config->get('dockworker', []);
+        $dockworkerConfig = $config->get('dockworker') ?? [];
         if (!is_array($dockworkerConfig)) {
             $dockworkerConfig = [];
         }
