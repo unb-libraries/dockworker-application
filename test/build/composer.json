@@ -1,0 +1,8 @@
+{
+  "name": "unb-libraries/test-dockworker-application-build",
+  "description": "Fixture composer project exercised by dockworker:update.",
+  "license": "MIT",
+  "require": {
+    "psr/log": "^3"
+  }
+}

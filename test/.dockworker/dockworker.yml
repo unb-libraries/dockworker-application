@@ -9,6 +9,10 @@ dockworker:
     framework:
       name: test
       version: 1.0
+  update:
+    targets:
+      - dir: build
+        type: composer
   workflows:
     vcs:
       type: github
